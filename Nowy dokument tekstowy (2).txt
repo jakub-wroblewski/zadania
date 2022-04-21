@@ -1,0 +1,96 @@
+import matplotlib as mpl
+from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
+import matplotlib.pyplot as plt
+# fig = plt.figure()
+# ax = fig.gca(projection='3d')
+# z = np.linspace(0,2 * np.pi)
+# x = np.sin(z)
+# y = np.cos(z)*2
+# ax.plot(x, y, z, label='zadanie 1')
+# ax.legend()
+# plt.show()
+
+# Zadanie 2
+# import matplotlib.pyplot as plt
+# from mpl_toolkits.mplot3d import Axes3D
+# import numpy as np
+# # Ustawiamy seed by za ka¿dym razem wygl¹da³o identycznie
+# np.random.seed(19680801)
+# def randrange(n, vmin, vmax):
+#     return (vmax - vmin)*np.random.rand(n) + vmin
+# fig = plt.figure()
+# ax = fig.add_subplot(111, projection='3d')
+# n = 100
+# # Dla ka¿dego zbioru styli i zakresów wygeneruj n losowych punktów
+# # zdefiniowane przez x z [23, 32], y in [0, 100], z z [zlow, zhigh].
+# for c, m, zlow, zhigh in [('r', 'o', -50, -25), ('b', '^', -30, -5), ('g', '1', -20, -15), ('y', 'P', -35, -25), ('b', '*', -10, -50)]:
+#     xs = randrange(n, 23, 32)
+#     ys = randrange(n, 0, 100)
+#     zs = randrange(n, zlow, zhigh)
+#     ax.scatter(xs, ys, zs, c=c, marker=m)
+#     ax.set_xlabel('X Label')
+#     ax.set_ylabel('Y Label')
+#     ax.set_zlabel('Z Label')
+# plt.show()
+
+
+# Zadanie 3
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+from matplotlib import cm
+from matplotlib.ticker import LinearLocator, FormatStrFormatter
+import numpy as np
+fig = plt.figure()
+ax = fig.gca(projection='3d')
+# generuj dane.
+X = np.arange(-5, 5, 0.25)
+Y = np.arange(-5, 5, 0.25)
+X, Y = np.meshgrid(X, Y)
+R = np.sqrt(X**2 + Y**2)
+Z = np.sin(R)
+# rysuj powierzchniê.
+surf = ax.plot_surface(X, Y, Z, cmap=cm.coolwarm,
+linewidth=0, antialiased=False)
+ax.set_zlim(-1.01, 1.01)
+ax.zaxis.set_major_locator(LinearLocator(10))
+ax.zaxis.set_major_formatter(FormatStrFormatter('%.02f'))
+# Dodanie paska kolorów.
+fig.colorbar(surf, shrink=0.5, aspect=5)
+plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
